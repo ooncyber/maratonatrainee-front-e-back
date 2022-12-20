@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário</title>
+</head>
+<script>
+async function send(e){
+  e.preventDefault();
+  const response = await fetch('http://localhost/api', {
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      nome
+    }),
+    method: "POST"
+  })
+  alert((await response.json()).message)
+}
+</script>
+<body>
+  <h1>Formulário de perguntas</h1>
+  <form>
+    <label for="nome">Nome </label><input type="text" name="nome1" id="nome">
+    <label for="nome">Idade </label><input type="text" name="idade1" id="idade">
+    <br>
+    <label for="nome">Nome </label><input type="text" name="nome2" id="nome">
+    <label for="nome">Idade </label><input type="text" name="idade2" id="idade">
+    <br>
+    <label for="nome">Nome </label><input type="text" name="nome3" id="nome">
+    <label for="nome">Idade </label><input type="text" name="idade3" id="idade">
+    <br>
+    <input type="submit" value="Enviar" onClick="send(event)">
+  </form>
+  <div id="conteudo">
+    
+  </div>
+</body>
+</html>
